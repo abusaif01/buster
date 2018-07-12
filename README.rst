@@ -1,3 +1,5 @@
+A  Fork from `Buster <https://github.com/axitkhurana/buster>`__.
+
 Buster
 ======
 
@@ -10,43 +12,30 @@ Start with a clean, no commits Github repository.
 
 Warning! This project is a hack. It's not official. But it works for me.
 
-The interface
+Improvement
 -------------
+Please read the basic from `Buster <https://github.com/axitkhurana/buster>`__. With all the basic functionality a new parameter has added with this fork. Parameter only added to **generate** command.
 
-``setup [--gh-repo=<repo-url>]``
-
-      Creates a GIT repository inside ``static/`` directory.
-
-``generate [--domain=<local-address>]``
+``generate [--domain=<local-address>] [--prod-domain=<production-address>]`` 
 
       Generates static pages from locally running Ghost instance.
 
-``preview``
+After generating all the pages, local url/address (``--domain``) will be replaced with production/actual address/url (provided with parameter ``prod-domain``).
 
-      Preview what's generated on ``localhost:9000``.
+``prod-domain`` is optional. If not provided then URL will remain as it is.  
 
-``deploy``
+**No need** to change your blog URL in **Ghost configurations**.
 
-      Commits and deploys changes static files to Github repository.
-
-``add-domain <domain-name>``
-
-      Adds CNAME file with custom domain name as required by Github
-Pages.
-
-Buster assumes you have ``static/`` folder in your current directory (or
-creates one during ``setup`` command). You can specify custom directory
-path using ``[--dir=<path>]`` option to any of the above commands.
-
-Don't forget to change your blog URL in config.js in Ghost.
-
+Background
+------------
+With the  original version if ghost run in local address ( ex. ``http://localhost:2368``) and generate command used then all the static file will have local address as URL, which will not work in production. If we change URL  to production URL in the configuration then run ghost in local, some static page will not work. To Solve this problem this parameter is added.
 
 The Installation
 ----------------
 
-Installing Buster is easy with pip:
+Install this fork with pip:
 
-    $ pip install buster
+    $ pip install git+https://github.com/abusaif01/buster
 
 You'll then have the wonderful ``buster`` command available.
 
@@ -69,36 +58,3 @@ installed via ``pip``:
 -  `GitPython <https://github.com/gitpython-developers/GitPython>`__:
    Python interface for GIT.
 
-Ghost. What?
-------------
-
-`Ghost <http://ghost.org/features/>`__ is a beautifully designed,
-completely customisable and completely `Open
-Source <https://github.com/TryGhost/Ghost>`__ **Blogging Platform**. If
-you haven't tried it out yet, check it out. You'll love it.
-
-The Ghost Foundation is not-for-profit organization funding open source
-software and trying to completely change the world of online publishing.
-Consider `donating to Ghost <http://ghost.org/about/donate/>`__.
-
-Buster?
-~~~~~~~
-
-Inspired by THE GhostBusters.
-
-.. figure:: http://upload.wikimedia.org/wikipedia/en/c/c7/Ghostbusters_cover.png
-   :alt: Ghost Buster Movie Poster
-
-   Ghost Buster Movie
-
-Contributing
-------------
-
-Checkout the existing
-`issues <https://github.com/axitkhurana/buster/issues>`__ or create a
-new one. Pull requests welcome!
-
---------------
-
-*Made with* `jugaad <http://en.wikipedia.org/wiki/Jugaad>`__ *in*
-`Dilli <http://en.wikipedia.org/wiki/Delhi>`__.
