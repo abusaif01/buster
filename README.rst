@@ -41,20 +41,3 @@ You'll then have the wonderful ``buster`` command available.
 
 You could also clone the source and use the ``buster.py`` file directly.
 
-Requirements
-------------
-
--  wget: Use ``brew install wget`` to install wget on your Mac.
-   Available by default on most linux distributions.
-
--  git: Use ``brew install git`` to install git on your Mac.
-   ``sudo apt-get install git`` on ubuntu/debian
-
-The following python packages would be installed automatically when
-installed via ``pip``:
-
--  `docopt <https://github.com/docopt/docopt>`__: Creates beautiful
-   command line interfaces *easily*.
--  `GitPython <https://github.com/gitpython-developers/GitPython>`__:
-   Python interface for GIT.
-
