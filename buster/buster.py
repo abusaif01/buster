@@ -2,7 +2,7 @@
 
 Usage:
   buster.py setup [--gh-repo=<repo-url>] [--dir=<path>]
-  buster.py generate [--domain=<local-address>] [--dir=<path>]
+  buster.py generate [--domain=<local-address>] [--dir=<path>] [--prod-domain=<production-address>]
   buster.py preview [--dir=<path>]
   buster.py deploy [--dir=<path>]
   buster.py add-domain <domain-name> [--dir=<path>]
@@ -90,6 +90,19 @@ def main():
                 newtext = fixLinks(filetext, parser)
                 with open(filepath, 'w') as f:
                     f.write(newtext)
+        oldUrl=arguments['--domain']
+        if 'http' not in oldUrl:
+            oldUrl="http://"+oldUrl
+        newUrl=arguments['--prod-domain']
+		print "Changing ",oldUrl," => ",newUrl," in all file"
+        for root, dirs, filenames in os.walk(static_path):
+            for filename in fnmatch.filter(filenames, "*.html"):
+                filepath = os.path.join(root, filename)
+                with open(filepath) as f:
+                    filetext = f.read()
+                newtext=filetext.replace(str(oldUrl),str(newUrl))
+                with open(filepath, 'w') as f:
+                    f.write(newtext)    
 
     elif arguments['preview']:
         os.chdir(static_path)
