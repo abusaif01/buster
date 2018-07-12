@@ -94,7 +94,7 @@ def main():
         if 'http' not in oldUrl:
             oldUrl="http://"+oldUrl
         newUrl=arguments['--prod-domain']
-		print "Changing ",oldUrl," => ",newUrl," in all file"
+        print "Changing ", oldUrl ," => ", newUrl ," in all file"
         for root, dirs, filenames in os.walk(static_path):
             for filename in fnmatch.filter(filenames, "*.html"):
                 filepath = os.path.join(root, filename)
